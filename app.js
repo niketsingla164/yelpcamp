@@ -17,8 +17,7 @@ const Review = require('./models/review');
 const Campground = require('./models/campground');
 const User = require('./models/user');
 
-const db_URL = 'mongodb://127.0.0.1:27017/yelp-camp';
-//const db_URL = process.env.DB_URL;
+const db_URL = process.env.DB_URL || 'mongodb://192.168.150.24:27017/yelp-camp';
 mongoose.connect(db_URL);
 const expressError = require('./utils/Expresserror');
 const wrapAsync = require('./utils/wrapAsync');
@@ -37,6 +36,7 @@ const db = mongoose.connection;
  db.once("open",()=>{
      console.log("DATABASE CONNECTED");
  })
+ 
 const store = MongodbStore.create({
     mongoUrl: db_URL,
     touchAfter: 24 * 60 * 60,
