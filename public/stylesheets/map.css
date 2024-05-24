@@ -1,0 +1,52 @@
+#cluster-map {
+  height : 500px;
+  width : 100%;
+  border: 1px solid rgb(172, 169, 169);
+  border-radius: 15px;
+  box-shadow: 5px 1px 10px rgba(131, 129, 129, 0.6);
+  margin-top : 0px;
+}
+#index-image {
+   width:100%;
+   height : 400px;
+}
+#show-details{
+    background-image: linear-gradient(110deg, #c6d0e1f6, #F5F7FA);
+}
+@media (max-width:1300px){
+    #index-image{
+        height : 340px;
+    }
+}
+@media (max-width:1000px) {
+    #index-image {
+        height: 290px;
+    }
+}
+@media (max-width: 768px) {
+    #cluster-map {
+        height: 40vh;
+    }
+    #index-image {
+        height : 250px;
+    }
+    #show-details{
+        background-image: linear-gradient(90deg, #d1dbecf6, #F5F7FA, #c6d2e5);
+    }
+}
+@media (max-width:340px){
+    #index-image {
+            height: 190px;
+        }
+    #show-image {
+        height : 260px;
+    }
+}
+#map {
+    height: 300px;
+    width : 100%;
+    border: 2px solid rgba(227, 222, 222, 0.9);
+    border-bottom: 2px solid gray;
+    border-top-left-radius: 10px;
+    border-top-right-radius : 10px;
+}

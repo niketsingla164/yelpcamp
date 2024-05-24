@@ -1,0 +1,12 @@
+@media (max-width:340px) {
+    #edit-image {
+        width :100px;
+        height : 100px;
+    }
+}
+@media(min-width:341px){
+    #edit-image{
+        width : 200px;
+        height: 200px;
+    }
+}

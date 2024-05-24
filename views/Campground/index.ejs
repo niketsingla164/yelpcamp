@@ -1,0 +1,41 @@
+    <%- layout('layouts/boilerplate') -%>
+    <link rel="stylesheet" href="/stylesheets/map.css">
+    <div id="cluster-map" class="shadow md" ></div>
+    <h1 class="text-monospace text-center text-dark mt-5 mb-4 border-bottom border-top"><b>ALL CAMPGROUND</b></h1>
+    
+    <div class="container">
+      <div class="row">
+        <% for(let foundcamp of camp){ %>
+          <div class="col-12 col-md-4 mb-5 col-sm-6">
+            <div class="card h-100 shadow" >
+              <div class="card shadow">
+                <a href="/campground/id/<%= foundcamp._id %>">
+                  <img src="<%= foundcamp.image[0].url %>" class="card-img-top" id="index-image">
+                </a>
+              </div>
+              <div class="card-body d-flex flex-column bg-light">
+                <h3 class="card-title text-center text-primary ">
+                  <b>
+                    <%= foundcamp.title %>
+                  </b>
+                  
+                </h3>
+                <span class="card-title text-center text-primary font-weight-light" style="font-size: 20px;">
+                
+                  (<%= foundcamp.location %>)
+                
+                </span>
+                <a href="/campground/id/<%= foundcamp._id %>" class="card-link btn btn-primary align-self-center">View <%=
+                    foundcamp.title %></a>
+              </div>
+            </div>
+          </div>
+          <% } %>
+      </div>
+    </div>
+    <script>
+      const mapbox_Token = '<%= process.env.MAPBOX_TOKEN %>';
+      const campgrounds = {features : <%-JSON.stringify(camp)%>}//no need to worry because format on save is On
+   </script>
+   <script src="/javascripts/clustermap.js"></script>
+  

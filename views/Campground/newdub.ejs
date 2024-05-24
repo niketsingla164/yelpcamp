@@ -1,0 +1,48 @@
+<%- layout('layouts/boilerplate') -%>
+    <div class="container p-5 mb-5 mt-10 shadow-lg " style= "width : 70% ;border : 1px solid rgb(203, 201, 201) ;border-radius: 50px; box-shadow: 10px 10px 5px gray; display : flex; flex-direction: column; justify-content: center">
+     
+    <div class="display-3 mb-5 align-self-center"><b>NEW CAMPGROUND</b></div>
+    <form enctype="multipart/form-data" class = "form-group align-items-center needs-validation"  style="display: flex; flex-direction: column; justify-content: center;" action="/campground/new" method="post" novalidate>
+        <div class="row justify-content-center"></div>
+        <div class="row input-group mb-3">
+            <span class="col-3 input-group-text" id="basic-addon2">Title</span>
+            <input name="title" type ="text" class="col-9 form-control" placeholder="title" aria-label="title" aria-describedby="basic-addon2" required> 
+            <div class="valid-feedback">
+                Looks good!
+              </div>
+        </div>
+        <div class="row input-group mb-3">
+            <span  class ="col-3 input-group-text" id="basic-addon2">Location</span>
+            <input name = "location" type="text" class="col-9 form-control" placeholder="Location" aria-label="Location" aria-describedby="basic-addon2" required> 
+            <div class="valid-feedback">
+                Looks good!
+              </div>
+        </div>
+
+        <div class="row input-group mb-3">
+            <span class="col-3 input-group-text" id="basic-addon2">Price($)</span>
+            <input name = "price" type="text" class="col-9 form-control" placeholder="price" aria-label="price" aria-describedby="basic-addon2" required>
+            <div class="valid-feedback">
+                Looks good!
+              </div>
+        </div>
+        <div class="row input-group mb-3">
+            <input name = "image" type="file" multiple required>
+        </div>
+        <div class="row input-group mb-3">
+            <span class="col-3 input-group-text" id="basic-addon2">Description</span>
+            <textarea name = "description" type="text" class="lead col-9 form-control" placeholder="Write down the description !!" aria-label="description" aria-describedby="basic-addon2" required></textarea>
+            <div class="valid-feedback">
+                Looks good!
+              </div>
+        </div>
+        <div>
+        
+        <button type = "submit" class = "btn btn-dark btn-lg text-light mt-2 mr-5 ">ADD ON</button>
+        <button class = "btn btn-danger btn-lg text-light mt-2 ml-5" onclick="window.location.href='/campground';">CANCEL</button>
+    </div>
+    </div>
+    </form>
+    
+
+</div>

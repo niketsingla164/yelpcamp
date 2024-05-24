@@ -1,0 +1,62 @@
+<%- layout('layouts/boilerplate') -%>
+    <link rel="stylesheet" href="/stylesheets/edit.css">
+    <div class="container p-5 mb-5 mt-10 shadow-lg text-center " style= "background-color: white; width : 70% ;border : 1px solid rgb(203, 201, 201) ;border-radius: 50px; box-shadow: 10px 10px 5px gray; display : flex; flex-direction: column; justify-content: center">
+      <div class="row">
+        <div class="col-md-6 offset-md-3"></div>
+        <div class="display-5 mb-5 align-self-center"><b>Edit Campground</b></div>
+        <form class = "form-group align-items-center needs-validation" enctype="multipart/form-data" style="display: flex; flex-direction: column; justify-content: center;" action="/campground/<%= camp._id %>?_method=PATCH"  method="post" novalidate>
+
+            <div class="row input-group mb-3">
+                <span class="col-3 input-group-text" id="basic-addon2">Title</span>
+                <input name="title" type="text" class="col-9 form-control" placeholder="title" aria-label="title" aria-describedby="basic-addon2" value="<%= camp.title %> " required> 
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+            </div>
+            <div class="row input-group mb-3">
+                <span class="col-3 input-group-text" id="basic-addon2">Location</span>
+                <input name="location" type="text" class="col-9 form-control" placeholder="Location" aria-label="Location" aria-describedby="basic-addon2" value="<%= camp.location %>"required> 
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+            </div>
+    
+            <div class="row input-group mb-3">
+                <span class="col-3 input-group-text" id="basic-addon2">Price($)</span>
+                <input name="price" type="text" class="col-9 form-control" placeholder="price" aria-label="price" aria-describedby="basic-addon2" value="<%= camp.price %>"required>
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+            </div>
+                
+            <div class="row input-group mb-3">
+                <span class="col-3 input-group-text" id="basic-addon2">Description</span>
+                <textarea name="description" type="text" class="lead col-9 form-control" placeholder="Write down the description !!" aria-label="description" aria-describedby="basic-addon2" rows="4" required><%= camp.description %></textarea>
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>   
+            </div>
+            <div class="row input-group mb-3">
+                <span  class="input-group-text col-3" id="basic-addon2">Add Images</span>
+                <input type="file" class="form-control col-9"  name="image" aria-describedby="basic-addon2" multiple>
+            </div>
+            <div class="mb-3 d-flex flex-wrap">
+                <% camp.image.forEach((img,i)=>{ %>
+                 <div class="">
+                 <img class="form-control img-thumbnail mb-1" src="<%=img.thumbnail%>"  id="edit-image"></img>
+                 <div class="form-check-inline d-inline">
+                    <input type="checkbox" id="image-<%=i%>" name="deleteimages[]" value="<%= img.filename %>">
+                 </div>
+                 <label for="image-<%=i%>">Delete?</label>
+                </div>
+                 <% }) %>
+            </div>
+            <div>
+                <button type = "submit" class = "btn btn-dark btn-lg text-light mt-2 mr-5 ">SAVE CHANGES</button>
+                <button type="button" class = "btn btn-danger btn-lg text-light mt-2 ml-5" onclick="window.location.href= '/campground/id/<%= camp._id %>'">CANCEL</button>
+        </div>
+        </form>
+       </div>
+       </div>
+    </div>
+    

@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="/stylesheets/navbar.css">
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-dark">
+    
+    
+        <div class="container-fluid">
+        <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+      
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class=" navbar-nav">
+          <a class="nav-link text-light" href="/">HOME</a>
+          <a class="nav-link text-light" href="/campground">CAMPGROUNDS</a>
+          <a class="nav-link text-light" href="/campground/new">ADD-ON</a>
+      </div>
+      <div class="navbar-nav ms-auto">
+        <% if(!currentUser){ %>
+          <a href="/user/login" class="nav-link text-light">LOGIN</a>
+          <a href="/user/register" class = " nav-link text-light">REGISTER</a>
+          <% }else { %>
+          <a href="/user/logout" class= "nav-link text-light" >LOGOUT</a>
+          <% } %>
+      </div>
+      </div>
+  </nav>
