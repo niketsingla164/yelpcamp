@@ -34,11 +34,11 @@
 
       <div class="card-body">
       <h3 class="card-title"><%= foundcamp.title %></h3>
-      <p class="card-text "><%= foundcamp.description %></p>
+      <p class="card-text "><%= foundcamp.title %> <%= foundcamp.description %></p>
 
       <ul id="show-details">
          
-            <li class="list-group-item display-5 text-primary" ><strong>$<%= foundcamp.price %></strong></li>
+            <li class="list-group-item display-5 text-primary" ><strong>&#x20b9;<%= foundcamp.price %>/day</strong></li>
             <li class="list-group-item text-muted">-<%= foundcamp.location %></li>
             <li class="list-group-item text-muted">- By <%= foundcamp.author.username %></li>
          

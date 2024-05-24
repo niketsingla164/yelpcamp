@@ -4,7 +4,7 @@ if(process.env.NODE_ENV !== "production"){
 
 const express = require('express');
 const app = express();
-
+const mongodb = require('mongodb');
 const path = require('path');
 const joi = require('joi');
 const ejsmate = require('ejs-mate');
@@ -16,9 +16,9 @@ const mongoose = require('mongoose');
 const Review = require('./models/review');
 const Campground = require('./models/campground');
 const User = require('./models/user');
+const db_URL = 'mongodb+srv://niketsingla164:niket164@yelp.jnhfoxc.mongodb.net/?retryWrites=true&w=majority&appName=yelp';
 
-const db_URL = process.env.DB_URL || 'mongodb://192.168.150.24:27017/yelp-camp';
-mongoose.connect(db_URL);
+mongoose.connect('mongodb+srv://niketsingla164:niket164@yelp.jnhfoxc.mongodb.net/?retryWrites=true&w=majority&appName=yelp');
 const expressError = require('./utils/Expresserror');
 const wrapAsync = require('./utils/wrapAsync');
 const session = require('express-session');
@@ -36,9 +36,9 @@ const db = mongoose.connection;
  db.once("open",()=>{
      console.log("DATABASE CONNECTED");
  })
- 
+
 const store = MongodbStore.create({
-    mongoUrl: db_URL,
+    mongoUrl: 'mongodb+srv://niketsingla164:niket164@yelp.jnhfoxc.mongodb.net/?retryWrites=true&w=majority&appName=yelp',
     touchAfter: 24 * 60 * 60,
     crypto: {
         secret: 'thisshouldbeabettersecret!'
